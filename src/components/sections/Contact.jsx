@@ -1,49 +1,54 @@
 import Section from '../common/Section';
 import { portfolioData } from '../../data/portfolioData';
-import { Mail, Github, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
-  const socialLinks = [
-    { name: 'GitHub', icon: <Github />, href: portfolioData.profile.github, color: 'hover:text-white' },
-    { name: 'LinkedIn', icon: <Linkedin />, href: portfolioData.profile.linkedin, color: 'hover:text-[#0077b5]' },
-    { name: 'Email', icon: <Mail />, href: `mailto:${portfolioData.profile.email}`, color: 'hover:text-accent' },
-  ];
-
   return (
-    <Section id="contato" className="pb-40">
-      <div className="bg-gradient-to-br from-accent/10 to-transparent p-12 md:p-20 rounded-[3rem] border border-white/10 text-center relative overflow-hidden">
-        {/* Decorative Circles */}
-        <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
-
-        <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter">
-          Vamos construir algo <br /> <span className="text-accent italic">impactante</span> juntos?
+    <Section id="contato" className="py-40">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-5xl md:text-8xl font-black mb-12 tracking-tighter text-gradient leading-[0.9]">
+          Vamos construir o <br /> próximo grande <span className="text-accent italic">impacto</span>?
         </h2>
         
-        <p className="text-xl text-white/60 mb-12 max-w-xl mx-auto leading-relaxed">
-          Estou sempre aberto a novas oportunidades, colaborações em projetos open-source ou apenas uma boa conversa sobre tecnologia.
+        <p className="text-xl md:text-2xl text-white/40 mb-20 max-w-2xl mx-auto font-medium">
+          Aberto a oportunidades que desafiem o status quo da tecnologia.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-6">
-          {socialLinks.map((link) => (
+        <div className="flex flex-col items-center gap-10">
+          <a 
+            href={`mailto:${portfolioData.profile.email}`}
+            className="group text-3xl md:text-5xl font-black tracking-tighter text-white hover:text-accent transition-all flex items-center gap-4"
+          >
+            {portfolioData.profile.email}
+            <ArrowRight size={40} className="group-hover:translate-x-4 transition-transform text-accent" />
+          </a>
+
+          <div className="flex flex-wrap justify-center gap-6">
             <a 
-              key={link.name}
-              href={link.href}
+              href={portfolioData.profile.github}
               target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl transition-all duration-300 ${link.color} hover:bg-white/10 hover:-translate-y-1 group`}
+              className="px-8 py-5 bg-white/5 border border-white/5 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all font-bold flex items-center gap-3"
             >
-              {link.icon}
-              <span className="font-bold">{link.name}</span>
-              <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Github size={24} /> GitHub
             </a>
-          ))}
+            <a 
+              href={portfolioData.profile.linkedin}
+              target="_blank"
+              className="px-8 py-5 bg-white/5 border border-white/5 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all font-bold flex items-center gap-3"
+            >
+              <Linkedin size={24} /> LinkedIn
+            </a>
+          </div>
         </div>
 
-        <div className="mt-20 pt-10 border-t border-white/5 text-white/40 text-sm">
-          <p>© {new Date().getFullYear()} {portfolioData.profile.name}. Todos os direitos reservados.</p>
-          <p className="mt-2 uppercase tracking-[0.2em] text-[10px]">Construído com React + Tailwind CSS</p>
-        </div>
+        <footer className="mt-40 pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-white/20 text-xs font-black uppercase tracking-[0.2em]">
+          <p>© {new Date().getFullYear()} {portfolioData.profile.name}. Todos os Direitos Reservados.</p>
+          <div className="flex gap-8">
+             <span>React 19</span>
+             <span>Tailwind 4</span>
+             <span>Vite 8</span>
+          </div>
+        </footer>
       </div>
     </Section>
   );
