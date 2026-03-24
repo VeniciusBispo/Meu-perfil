@@ -1,8 +1,8 @@
 export const portfolioData = {
   profile: {
     name: "José Venicius",
-    role: "Sistemas de Informação | Developer & Tech Enthusiast",
-    bio: "Estudante de Sistemas de Informação, 23 anos, focado no desenvolvimento de soluções robustas com arquitetura limpa. Especialista em transformar problemas complexos em produtos eficientes e escaláveis.",
+    role: "Sistemas de Informação | Software Engineer Enthusiast",
+    bio: "Construindo sistemas de alto impacto onde a eficiência encontra a inovação. Estudante de Sistemas de Informação focado em arquitetura resiliente, automação de hardware e soluções que realmente escalam.",
     email: "contato@veniciusbispo.dev",
     github: "https://github.com/VeniciusBispo",
     linkedin: "https://linkedin.com/in/veniciusbispo", // Placeholder, ajustável
