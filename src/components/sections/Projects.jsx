@@ -1,66 +1,88 @@
 import Section from '../common/Section';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolioData';
-import { Github, ExternalLink, Zap } from 'lucide-react';
+import { Github, ExternalLink, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 const Projects = () => {
   return (
-    <Section id="projetos" className="py-32">
-      <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-        <div>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">Projetos em Foco</h2>
-          <p className="text-white/40 max-w-xl font-medium">Desenvolvendo soluções reais com foco em performance e experiência de usuário.</p>
-        </div>
-        <div className="hidden md:block h-px flex-1 bg-white/5 mb-8 mx-12"></div>
+    <Section id="projetos">
+      <div className="mb-24">
+        <h2 className="section-title">Trabalho <br /> & <span className="text-accent italic">Soluções</span></h2>
+        <p className="text-[var(--text-body)] text-[var(--color-text-dim)] max-w-xl font-[var(--weight-medium)] leading-relaxed">
+          Projetos selecionados que demonstram expertise em arquitetura, segurança e performance.
+        </p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-10">
+      <div className="grid lg:grid-cols-2 gap-[var(--space-64)] md:gap-[var(--space-80)]">
         {portfolioData.projects.map((project) => (
-          <div 
+          <motion.div 
             key={project.id} 
-            className="group relative bg-[#111] border border-white/5 rounded-[3rem] p-10 flex flex-col hover:border-accent/20 transition-all h-full"
+            whileHover={{ y: -10, scale: 1.01 }}
+            className="group relative bg-[var(--color-surface)] p-10 md:p-12 transition-all duration-500 rounded-[var(--radius-xl)] border border-[var(--color-border)] hover:border-accent/10 premium-shadow flex flex-col h-full"
           >
-            {/* Visual Header */}
-            <div className="aspect-video bg-white/5 rounded-[2rem] border border-white/5 mb-8 flex items-center justify-center relative overflow-hidden">
-               <Zap size={64} className="text-white/5 group-hover:text-accent/20 transition-all group-hover:scale-125" />
-               <div className="absolute top-4 right-4 flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/40 border border-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/40 border border-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/40 border border-green-500/50"></div>
+            <div className="absolute top-0 right-0 w-80 h-80 bg-accent/5 blur-[120px] -mr-40 -mt-40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Massive Mockup / Thumb */}
+            <div className="aspect-video bg-white/[0.03] rounded-[var(--radius-lg)] border border-[var(--color-border)] mb-12 overflow-hidden relative group-hover:border-accent/20 transition-all duration-700 shadow-inner">
+               <img 
+                 src={project.image} 
+                 alt={project.title} 
+                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+               />
+               <div className="absolute top-6 left-6">
+                 <span className="px-6 py-2 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full text-[var(--text-tiny)] font-[var(--weight-black)] uppercase tracking-[0.2em] text-accent">
+                   {project.category}
+                 </span>
                </div>
             </div>
 
             <div className="flex-1 flex flex-col">
-              <h3 className="text-3xl font-black mb-6 tracking-tight group-hover:text-accent transition-colors">{project.title}</h3>
+              <h3 className="text-[var(--text-h3)] font-[var(--weight-black)] mb-8 tracking-tight text-white group-hover:text-accent transition-colors">
+                {project.title}
+              </h3>
               
-              <p className="text-white/50 mb-8 font-medium line-clamp-3">
-                {project.solution}
-              </p>
+              <div className="space-y-6 mb-12">
+                <div className="flex gap-4">
+                  <AlertCircle size={20} className="text-red-500/50 shrink-0 mt-1" />
+                  <p className="text-[var(--color-text-dim)] text-[var(--text-small)] font-[var(--weight-medium)] leading-relaxed">
+                    <span className="text-white/60 block mb-1 font-[var(--weight-black)] tracking-tight uppercase tracking-widest text-[var(--text-tiny)]">O Problema</span>
+                    {project.problem}
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <CheckCircle2 size={20} className="text-accent/50 shrink-0 mt-1" />
+                  <p className="text-[var(--color-text-dim)] text-[var(--text-small)] font-[var(--weight-medium)] leading-relaxed">
+                    <span className="text-white/60 block mb-1 font-[var(--weight-black)] tracking-tight uppercase tracking-widest text-[var(--text-tiny)]">O Impacto</span>
+                    {project.impact}
+                  </p>
+                </div>
+              </div>
 
-              <div className="flex flex-wrap gap-2 mb-10">
-                {project.tech.slice(0, 4).map((t, idx) => (
-                  <span key={idx} className="px-4 py-1.5 bg-white/5 rounded-full text-xs font-bold text-white/40 border border-white/5">
+              <div className="flex flex-wrap gap-2.5 mb-16">
+                {project.tech.map((t, idx) => (
+                  <span key={idx} className="px-4 py-2 bg-white/[0.02] rounded-[var(--radius-sm)] text-[var(--text-tiny)] font-[var(--weight-black)] text-white/30 border border-white/5 uppercase tracking-widest">
                     {t}
                   </span>
                 ))}
               </div>
 
-              <div className="mt-auto flex gap-4 pt-6 border-t border-white/5">
+              <div className="mt-auto flex gap-6 pt-10 border-t border-white/5">
                 <a 
                   href={project.github} 
                   target="_blank" 
-                  className="flex-1 flex items-center justify-center gap-2 py-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white hover:text-black transition-all font-black text-sm"
+                  className="flex-1 flex items-center justify-center gap-3 py-5 bg-[var(--color-bg)] border border-[var(--color-border)] rounded-[var(--radius-md)] hover:bg-white/5 transition-all font-[var(--weight-black)] text-[var(--text-tiny)] uppercase tracking-widest text-[var(--color-text-dim)] hover:text-white"
                 >
                   <Github size={18} /> Código
                 </a>
                 <a 
                   href={project.link} 
-                  className="flex-1 flex items-center justify-center gap-2 py-4 bg-accent text-black rounded-2xl hover:bg-white transition-all font-black text-sm shadow-[0_4px_20px_rgba(0,209,255,0.2)]"
+                  className="flex-1 flex items-center justify-center gap-3 py-5 bg-white text-black rounded-[var(--radius-md)] hover:bg-accent hover:text-white transition-all font-[var(--weight-black)] text-[var(--text-tiny)] uppercase tracking-widest shadow-2xl"
                 >
-                  <ExternalLink size={18} /> Demo
+                  <ExternalLink size={18} /> Ver Projeto
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </Section>

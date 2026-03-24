@@ -1,45 +1,48 @@
 import Section from '../common/Section';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolioData';
-import { GraduationCap, Award } from 'lucide-react';
+import { User, BookOpen } from 'lucide-react';
 
 const About = () => {
   return (
-    <Section id="sobre" className="py-32 border-t border-white/5">
-      <div className="max-w-4xl mx-auto">
-        <header className="mb-16">
-          <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter flex items-center gap-5">
-            Sobre Mim
-            <span className="h-[2px] flex-1 bg-gradient-to-r from-accent/50 to-transparent"></span>
-          </h2>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-medium">
-            {portfolioData.about.text}
+    <Section id="sobre">
+      <div className="grid lg:grid-cols-12 gap-20 items-center">
+        {/* Main Text Content - Left Aligned for better reading flow */}
+        <div className="lg:col-span-12 mb-16">
+           <h2 className="section-title">Sobre <span className="text-accent underline underline-offset-8 decoration-accent/20">Mim</span></h2>
+        </div>
+        
+        <div className="lg:col-span-7">
+          <p className="text-[var(--text-body)] text-[var(--color-text-dim)] leading-[var(--leading-normal)] mb-12 max-w-[700px] font-[var(--weight-medium)]">
+             {portfolioData.about.text.split('. ').slice(0, 3).join('. ') + '.'}
           </p>
-        </header>
+          <p className="text-[var(--text-body)] text-[var(--color-text-dim)] leading-[var(--leading-normal)] max-w-[700px] font-[var(--weight-medium)]">
+             Sou focado em arquitetura limpa e performance, transformando visões técnicas em produtos robustos de alto desempenho.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          <div className="p-8 bg-white/5 rounded-[2rem] border border-white/5 hover:border-accent/20 transition-all group">
-            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <GraduationCap className="text-accent" />
-              Educação
-            </h3>
-            {portfolioData.about.education.map((edu, idx) => (
-              <div key={idx} className="space-y-1">
-                <p className="text-lg font-bold text-white">{edu.degree}</p>
-                <p className="text-white/40 font-medium">{edu.institution}</p>
-                <p className="text-accent/60 text-xs font-black uppercase tracking-widest pt-2">{edu.period}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="p-8 bg-white/5 rounded-[2rem] border border-white/5 hover:border-accent/20 transition-all">
-            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Award className="text-accent" />
-              Filosofia de Trabalho
-            </h3>
-            <p className="text-white/60 leading-relaxed italic">
-              "Focado em transformar complexidade em simplicidade através de arquitetura limpa e código resiliente."
-            </p>
-          </div>
+        {/* Highlight Card - Right Side */}
+        <div className="lg:col-span-5">
+           <motion.div 
+             whileHover={{ y: -5 }}
+             className="bg-[var(--color-surface)] p-10 md:p-12 rounded-[var(--radius-xl)] border border-[var(--color-border)] premium-shadow relative"
+           >
+             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[100px] -mr-32 -mt-32 pointer-events-none" />
+             <div className="flex items-center gap-4 mb-10">
+               <BookOpen size={24} className="text-accent" />
+               <h3 className="text-[var(--text-h3)] font-[var(--weight-black)] tracking-tight">Formação</h3>
+             </div>
+             
+             <div className="space-y-12">
+               {portfolioData.about.education.map((edu, idx) => (
+                 <div key={idx} className="relative pl-10 border-l-2 border-accent/20">
+                    <h4 className="text-[var(--text-body)] font-[var(--weight-black)] text-white mb-2 leading-tight">{edu.degree}</h4>
+                    <p className="text-accent text-[var(--text-small)] font-[var(--weight-black)] mb-3 uppercase tracking-wider">{edu.institution}</p>
+                    <span className="text-[var(--color-text-dim)] text-[var(--text-tiny)] font-[var(--weight-black)] uppercase tracking-[0.2em]">{edu.period}</span>
+                 </div>
+               ))}
+             </div>
+           </motion.div>
         </div>
       </div>
     </Section>

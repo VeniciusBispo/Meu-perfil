@@ -1,54 +1,50 @@
 import Section from '../common/Section';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolioData';
-import { Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
+import { Mail, ArrowUpRight, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <Section id="contato" className="py-40">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-5xl md:text-8xl font-black mb-12 tracking-tighter text-gradient leading-[0.9]">
-          Vamos construir o <br /> próximo grande <span className="text-accent italic">impacto</span>?
-        </h2>
-        
-        <p className="text-xl md:text-2xl text-white/40 mb-20 max-w-2xl mx-auto font-medium">
-          Aberto a oportunidades que desafiem o status quo da tecnologia.
-        </p>
-
-        <div className="flex flex-col items-center gap-10">
-          <a 
-            href={`mailto:${portfolioData.profile.email}`}
-            className="group text-3xl md:text-5xl font-black tracking-tighter text-white hover:text-accent transition-all flex items-center gap-4"
-          >
-            {portfolioData.profile.email}
-            <ArrowRight size={40} className="group-hover:translate-x-4 transition-transform text-accent" />
-          </a>
-
-          <div className="flex flex-wrap justify-center gap-6">
-            <a 
-              href={portfolioData.profile.github}
-              target="_blank"
-              className="px-8 py-5 bg-white/5 border border-white/5 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all font-bold flex items-center gap-3"
-            >
-              <Github size={24} /> GitHub
-            </a>
-            <a 
-              href={portfolioData.profile.linkedin}
-              target="_blank"
-              className="px-8 py-5 bg-white/5 border border-white/5 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all font-bold flex items-center gap-3"
-            >
-              <Linkedin size={24} /> LinkedIn
-            </a>
-          </div>
+    <Section id="contato" className="bg-[var(--color-surface)]">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="mb-24">
+          <h2 className="section-title">Vamos <span className="text-accent underline underline-offset-[12px] decoration-accent/20">Conversar</span>?</h2>
+          <p className="text-[var(--text-h3)] text-[var(--color-text-dim)] font-[var(--weight-medium)] leading-tight tracking-tight mb-16">
+             Pronto para transformar sua visão técnica em realidade de alto impacto.
+          </p>
         </div>
 
-        <footer className="mt-40 pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-white/20 text-xs font-black uppercase tracking-[0.2em]">
-          <p>© {new Date().getFullYear()} {portfolioData.profile.name}. Todos os Direitos Reservados.</p>
-          <div className="flex gap-8">
-             <span>React 19</span>
-             <span>Tailwind 4</span>
-             <span>Vite 8</span>
-          </div>
-        </footer>
+        <div className="flex flex-col items-center gap-12">
+           <a 
+             href={`mailto:${portfolioData.profile.email}`}
+             className="group relative flex items-center gap-6 px-16 py-8 bg-white text-black font-[var(--weight-black)] rounded-[var(--radius-xl)] transition-all hover:bg-accent hover:text-white shadow-[0_40px_80px_-20px_rgba(255,255,255,0.1)] hover:shadow-accent/40"
+           >
+             <Mail size={24} />
+             <span className="text-[var(--text-h3)] tracking-tight">{portfolioData.profile.email}</span>
+             <ArrowUpRight size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+           </a>
+
+           <div className="flex items-center gap-10 mt-12 pb-12 border-b border-white/5 w-full justify-center">
+             <a 
+               href={portfolioData.profile.github} 
+               target="_blank" 
+               className="flex items-center gap-3 text-[var(--color-text-dim)] hover:text-white transition-colors font-[var(--weight-black)] text-[var(--text-small)] uppercase tracking-[0.3em]"
+             >
+                <Github size={20} /> github
+             </a>
+             <a 
+               href={portfolioData.profile.linkedin} 
+               target="_blank" 
+               className="flex items-center gap-3 text-[var(--color-text-dim)] hover:text-white transition-colors font-[var(--weight-black)] text-[var(--text-small)] uppercase tracking-[0.3em]"
+             >
+                <Linkedin size={20} /> linkedin
+             </a>
+           </div>
+
+           <p className="text-[var(--text-tiny)] font-[var(--weight-black)] text-white/20 uppercase tracking-[0.5em] mt-8">
+             Design & Code by {portfolioData.profile.name.split(' ')[0]} © 2026
+           </p>
+        </div>
       </div>
     </Section>
   );

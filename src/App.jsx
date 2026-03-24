@@ -5,10 +5,12 @@ import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
 import Experience from './components/sections/Experience';
 import Contact from './components/sections/Contact';
+import CustomCursor from './components/common/CustomCursor';
 
 function App() {
   return (
-    <div className="bg-[#0a0a0a] min-h-screen text-white selection:bg-accent selection:text-[#0a0a0a]">
+    <div className="bg-[#0a0a0a] min-h-screen text-white selection:bg-accent selection:text-[#0a0a0a] cursor-none">
+      <CustomCursor />
       <Navbar />
       <main>
         <Hero />
