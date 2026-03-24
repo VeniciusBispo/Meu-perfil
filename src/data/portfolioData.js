@@ -8,7 +8,7 @@ export const portfolioData = {
     linkedin: "https://linkedin.com/in/veniciusbispo", // Placeholder, ajustável
   },
   about: {
-    text: "Sou acadêmico de Sistemas de Informação com foco no desenvolvimento de habilidades técnicas e analíticas voltadas à área de tecnologia. Em constante aprimoramento em engenharia de software, arquitetura de sistemas e metodologias ágeis.",
+    text: "Acadêmico de Sistemas de Informação focado no desenvolvimento de soluções robustas e escaláveis. Possuo uma base técnica sólida em engenharia de software, com grande interesse em arquitetura de sistemas e automação. Minha abordagem é pautada pela resolução analítica de problemas e pela busca constante por novas tecnologias que otimizem processos. Acredito na evolução contínua através da prática e do estudo rigoroso das melhores práticas do mercado.",
     education: [
       {
         degree: "Bacharelado em Sistemas de Informação",
@@ -19,20 +19,28 @@ export const portfolioData = {
   },
   skills: [
     {
-      category: "Linguagens & Frameworks",
-      items: ["Python", "JavaScript", "C#", "SQL", "React", "PySide6"]
+      category: "Linguagens",
+      items: ["Python", "JavaScript", "C#", "SQL", "TypeScript"]
     },
     {
-      category: "Arquitetura & Engenharia",
-      items: ["Clean Architecture", "SOLID", "Domain-Driven Design", "OOP"]
+      category: "Frontend",
+      items: ["React", "Tailwind CSS", "Next.js", "Framer Motion", "HTML5/CSS3"]
     },
     {
-      category: "Hardware & Sistemas",
-      items: ["DDC/CI", "WMI API", "Linux", "Windows Automation"]
+      category: "Backend",
+      items: ["Node.js", "Express", "FastAPI", "WMI API", "RESTful APIs"]
+    },
+    {
+      category: "Banco de Dados",
+      items: ["PostgreSQL", "MongoDB", "SQL Server", "SQLite", "Prisma ORM"]
     },
     {
       category: "Ferramentas",
-      items: ["Git", "Docker", "Agile/Scrum", "CI/CD"]
+      items: ["Git", "Docker", "VS Code", "Postman", "Insomnia"]
+    },
+    {
+      category: "Outros Conhecimentos",
+      items: ["Clean Architecture", "SOLID", "DDD", "Metodologias Ágeis", "DDC/CI Protocol"]
     }
   ],
   projects: [
