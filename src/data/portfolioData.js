@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "José Venicius",
     role: "Sistemas de Informação | Software Engineer Enthusiast",
     bio: "Construindo sistemas de alto impacto onde a eficiência encontra a inovação. Estudante de Sistemas de Informação focado em arquitetura resiliente, automação de hardware e soluções que realmente escalam.",
-    email: "contato@veniciusbispo.dev",
+    email: "viniciusbispo272@gmail.com",
     github: "https://github.com/VeniciusBispo",
     linkedin: "https://www.linkedin.com/in/venicius-bispo-386323229",
   },
