@@ -15,10 +15,12 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col items-center gap-12">
-           <a 
-             href={`mailto:${portfolioData.profile.email}`}
-             className="group relative flex items-center gap-6 px-16 py-8 bg-white text-black font-[var(--weight-black)] rounded-[var(--radius-xl)] transition-all hover:bg-accent hover:text-white shadow-[0_40px_80px_-20px_rgba(255,255,255,0.1)] hover:shadow-accent/40"
-           >
+            <a 
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${portfolioData.profile.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-6 px-16 py-8 bg-white text-black font-[var(--weight-black)] rounded-[var(--radius-xl)] transition-all hover:bg-accent hover:text-white shadow-[0_40px_80px_-20px_rgba(255,255,255,0.1)] hover:shadow-accent/40"
+            >
              <Mail size={24} />
              <span className="text-[var(--text-h3)] tracking-tight">{portfolioData.profile.email}</span>
              <ArrowUpRight size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
